@@ -4,7 +4,7 @@ jdk:
 after_success:
 - "./gradlew jar"
 deploy:
-  provider: release
+  provider: releases
   api_key:
     secure: DiwgMCOWhi3OnwCkk5saMA9v71l7UNCTGdQuxwCjNoFZ/++yKq4sFiqPc3d+INZOa89XjxaYCTI1eQUQeLTBfMlMJwXNshZo5+Z9MWAqL+C9B88WMBPDcDxpEpvsd21mf5eKbjfx7NTvhVN2SAigsNQJjhSQjQzQ5o+aj8QItfCx4qTJiAucibmSgYZtgL9bBF7Hsq0OLozZgQoPkgc+D2dC3j7ILZVSUG4H5gdw56MzH03B7VwF3pv5DpxKvqIh1CfY7fbvADJZ79sqGLmkkRdqypp6iDW87YCVlfEZiOLsj/ZvJLOxAUET0wHI8/v1y8vDNGolY9h+vxv5RAP+cOmVgg35aXugEwOhoT5CRzyLVgIB4sYRtqG537Mic8uWfeBGXo4NFx9R19vUpsGWMogtd6VUMZ6Dq10ZCQbpaaxEUA+K+lMYW/ESy8bLySAhSe00BMhFVNg9VbyVr5vvyzoQGLqz5oRLUSQrkIg/Q5xcs+yKj9dHJ09GYiGsX82We/HAYyaxzQSVy/KreCR/gucCW3utBc/BMltZiMWNZrstVgLKJvAm7a1oRFxxypgVeYfU0vrSqTO9qIZSwia0V8s9Edihu6kQJHVdM1bfaxOD7R0zoOL41jbKMmqKlETkRaWEQWH5FmvdgWsLohCVyCJm/8coXGRmas3VDUZozU4=
   file: build/ShuffleSound-*.jar
