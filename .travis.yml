@@ -10,5 +10,5 @@ deploy:
   file: build/ShuffleSound-*.jar
   file_glob: true
   on:
-    repo: DiamondIce/ShuffleSound
+    repo: DiamondIceNS/ShuffleSound
   tags: true
