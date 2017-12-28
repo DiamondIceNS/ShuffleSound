@@ -1,0 +1,59 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+buildscript {
+    ext.kotlin_version = '1.2.10'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id 'java'
+    id "org.jetbrains.kotlin.jvm" version "1.2.10"
+}
+
+group 'co.orre'
+version '0.0.1'
+description = """Play random sounds on shuffle!"""
+ext.url = 'www.orre.co'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+configurations {
+    fatjar
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    fatjar "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "org.spigotmc:spigot-api:1.12-R0.1-SNAPSHOT"
+}
+
+compileKotlin {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+jar {
+    from { configurations.fatjar.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+processResources {
+    filter ReplaceTokens, tokens: [
+            'DESCRIPTION': project.property('description'),
+            'URL'        : project.property('url'),
+            'VERSION'    : project.property('version')
+    ]
+}

@@ -1,0 +1,13 @@
+name: ShuffleSound
+version: '@VERSION@'
+description: '@DESCRIPTION@'
+
+author: DiamondIceNS
+website: '@URL@'
+
+main: co.orre.shufflesound.Plugin
+
+commands:
+  shuffle:
+    description: Plays a random sound in the specified directory
+    usage: /shuffle <player>
